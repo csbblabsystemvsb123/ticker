@@ -1,6 +1,9 @@
 export const formatNumber = (input) => {
+    if (!input) {
+        return;
+    }
     let number = input;
-    if (input && !isNaN(input)) {
+    if (!isNaN(input)) {
         if(number.toString().includes('.')) {
             number = number.toFixed(2).toString();
         } else {

@@ -1,4 +1,6 @@
-
+/*
+ * Copyright (c) 2021 Muthukumar.  All Rights Reserved
+ */
 import React from 'react';
 import propTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
@@ -10,6 +12,7 @@ import CTAButton from './CTAButton';
 import Icon from './Icon';
 import CustomToolTip from './ToolTip';
 
+// define the styles for the Card Component...
 const useStyles = makeStyles((theme) => ({
     root: {
         display                      : 'flex',
@@ -62,6 +65,30 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+/**
+ * Card Component provides the unfied structure of the individual widget of the Ticker page. The accepts folowwign pros,
+ * change: number : Difference of rate from now to last 24 hours
+ * changeInPercent: number : Difference in percentage of rate from now to last 24 hours
+ * coin: Object : The current coin object
+ * currentPrice: number : The current price of the coin
+ * volume: number : Total amount of volume
+ * high: number: The highest price in last 24hrs.
+ * low: number: The lowest price in last 24hrs.
+ * 
+ * ```
+ * 
+ *  import Card from '../dls/Card';
+ * 
+ *  <Card change={change}
+ *    changeInPercent={changeInPercent}
+ *    coin={coin}
+ *    currentPrice={currentPrice}
+ *    volume={volume}
+ *    high={high}
+ *    low={low} />
+ * 
+ * ```
+ */
 const Card = ({
     change,
     changeInPercent,
@@ -72,6 +99,7 @@ const Card = ({
     low
 }) => {
     const classes = useStyles();
+
     return (
         <div className={classes.root}>
             <div className={classes.symbol}>
@@ -119,6 +147,7 @@ const Card = ({
     );
 };
 
+// defines the props definition...
 Card.propTypes = {
     change: propTypes.number,
     changeInPercent: propTypes.number,
