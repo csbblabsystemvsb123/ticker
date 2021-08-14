@@ -1,0 +1,32 @@
+{
+    "tBTCUSD": {
+        "lable": "BTC/USD",
+        "value": "tBTCUSD",
+        "symbol": "tBTCUSD",
+        "abbr": "BTC"
+    },
+    "tETHUSD": {
+        "lable": "ETH/USD",
+        "value": "tETHUSD",
+        "symbol": "tETHUSD",
+        "abbr": "ETH"
+    },
+    "tADAUSD": {
+        "lable": "ADA/USD",
+        "value": "tADAUSD",
+        "symbol": "tADAUSD",
+        "abbr": "ADA"
+    },
+    "tETCUSD": {
+        "lable": "ETC/USD",
+        "value": "tETCUSD",
+        "symbol": "tETCUSD",
+        "abbr": "ETC"
+    },
+    "tCHZUSD": {
+        "lable": "CHZ/USD",
+        "value": "tCHZUSD",
+        "symbol": "tCHZUSD",
+        "abbr": "CHZ"
+    }
+}

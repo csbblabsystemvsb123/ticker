@@ -7,9 +7,9 @@ import { Tooltip, makeStyles } from '@material-ui/core';
 const useStyles = makeStyles(() => ({
     tooltip: {
         backgroundColor: '#212121',
-        fontSize: '12px',
-        padding: '6px',
-        boxShadow: '2px 2px 2px black'
+        fontSize       : '12px',
+        padding        : '6px',
+        boxShadow      : '2px 2px 2px black'
     },
     tooltipArrow: {
         color: '#212121'

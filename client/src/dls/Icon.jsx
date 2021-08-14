@@ -3,16 +3,20 @@ import propTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
 
 export const iconUrl = {
-    tBTCUSD: 'https://static.bitfinex.com/images/icons/BTC-alt.svg'
+    tBTCUSD: 'https://static.bitfinex.com/images/icons/BTC-alt.svg',
+    tCHZUSD: 'https://static.bitfinex.com/images/icons/CHZ-alt.svg',
+    tETHUSD: 'https://static.bitfinex.com/images/icons/ETH-alt.svg',
+    tADAUSD: 'https://static.bitfinex.com/images/icons/ADA-alt.svg',
+    tETCUSD: 'https://static.bitfinex.com/images/icons/ETC-alt.svg'
 }
 
 const useStyles = makeStyles(() => ({
     icon: {
-        filter: 'saturate(0) brightness(180%)',
-        backgroundSize: 'contain !important',
-        backgroundRepeat: 'no-repeat !important',
+        filter            : 'saturate(0) brightness(180%)',
+        backgroundSize    : 'contain !important',
+        backgroundRepeat  : 'no-repeat !important',
         backgroundPosition: '50% 50% !important',
-        display: 'block'
+        display           : 'block'
     }
 }));
 
@@ -23,9 +27,9 @@ export const Icon = ({
     return (
         <span className={classes.icon}
             style={{
-                width: '40px',
+                width : '40px',
                 height: '40px',
-                flex: '0 0 40px',
+                flex  : '0 0 40px',
                 backgroundImage: `url(${iconUrl[symbol]})`
             }} />
     );

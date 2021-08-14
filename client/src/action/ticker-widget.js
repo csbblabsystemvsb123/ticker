@@ -5,20 +5,20 @@ import {
     TICKER
 } from '../Constants';
 
-export const INITIATE_DATA = 'INITIATE_DATA';
+export const INITIATE_DATA   = 'INITIATE_DATA';
 export const SET_COIN_SYMBOL = 'SET_COIN_SYMBOL';
+export const SET_LOADING     = 'SET_LOADING';
 
 const baseURL = 'wss://api-pub.bitfinex.com/ws/2';
 
 var socket;
 
-let msg;
-
-export const initiateConnection = (value) => {
+export const initiateConnection = (immediateClose = false) => {
     return async (dispatch, getState) => {
         try {
-            const symbol = 'tBTCUSD';
-            msg = JSON.stringify({
+            dispatch({type: SET_LOADING});
+            const { symbol } = getState().tickerWidget;
+            const msg = JSON.stringify({
                 event: SUBSCRIBE,
                 channel: TICKER,
                 symbol
@@ -30,7 +30,10 @@ export const initiateConnection = (value) => {
                 if (data.event === ERROR) {
                     dispatch(resetConnection());
                 } else if (Array.isArray(data) && data[1]?.length === 10) {
-                    dispatch({type: INITIATE_DATA, data});
+                    dispatch({ type: INITIATE_DATA, data: data[1] });
+                    if (immediateClose) {
+                        socket.close();
+                    }
                 }
             }
             socket.onerror = () => {
@@ -43,20 +46,24 @@ export const initiateConnection = (value) => {
     };
 };
 
-const resetConnection = () => {
+export const resetConnection = (delay = 6000, force = true) => {
     return async (dispatch, getState) => {
+        force && dispatch({type: SET_LOADING});
         stopConnection();
-        setTimeout(() => {
-            dispatch(initiateConnection());
-        }, 6000);
+        if (socket && force) {
+            socket.onclose = () => {
+                setTimeout(() => {
+                    dispatch(initiateConnection());
+                }, delay);
+            }
+        }
     }
 };
 
 export const stopConnection = () => {
-    socket.close();
-    socket = null;
+    socket && socket.close();
 };
 
 export const setCoinSymbol = (value) => {
-    return {type: SET_COIN_SYMBOL, data: value};
+    return { type: SET_COIN_SYMBOL, data: value };
 }

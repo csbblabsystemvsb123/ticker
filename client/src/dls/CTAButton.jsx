@@ -5,9 +5,9 @@ import CustomToolTip from './ToolTip';
 
 const useStyles = makeStyles(() => ({
     root: {
-        color: ({ color }) => color || '#FFFF',
+        color   : ({ color }) => color || '#FFFF',
         fontSize: ({ fontSize }) => fontSize || '12px',
-        margin: ({ margin }) => margin || 'none'
+        margin  : ({ margin }) => margin || 'none'
     }
 }));
 

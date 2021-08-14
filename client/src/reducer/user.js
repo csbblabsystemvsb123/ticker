@@ -1,34 +1,25 @@
 //import produce from 'immer';
-import {AUTHENTICATE_USER, USER_INFO, CLEAR_USER_INFO} from '../action/user';
+import { AUTHENTICATE_USER, USER_INFO, CLEAR_USER_INFO } from '../action/user';
 
 export const intialState = {
-    isAuthenticated : false,
-    ctc: {
-        userID: 0,
-        accountID: 0,
-        email: ''
-    },
-    sisense: {
-        userID: '',
-        dashoardList: []
-    },
-}
+    isAuthenticated: false,
+    info: {}
+};
 
 let state = {
     ...intialState
-}
+};
 
-const reducer = (prevState, {type,value}) => {
-    switch(type) {
+const reducer = (prevState, { type, value }) => {
+    switch (type) {
         case AUTHENTICATE_USER:
             state.isAuthenticated = value;
             return state;
         case USER_INFO:
-            state.ctc = value.ctc;
-            state.sisense = value.sisense;
+            state.info = value.info;
             return state;
         case CLEAR_USER_INFO:
-            state = {...intialState}
+            state = { ...intialState }
             return state;
         default:
             return state;

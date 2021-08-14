@@ -14,12 +14,15 @@
 }
 
 body {
-  background-color: #f4f4f4;
+  background-color: #545454;
+  color: #FFFFFF;
   font-family: "Neo Sans light";
 }
 
 .App {
-  
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
 
 .App-logo {

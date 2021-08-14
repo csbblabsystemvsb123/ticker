@@ -27,7 +27,7 @@ export const url = (path) => {
 
 export const loadCurrenyDetails = async() => {
     const result = await client({
-        url: url("tickers?symbols=tBTCUSD,tLTCUSD"),
+        url: url('tickers?symbols=tBTCUSD,tLTCUSD'),
         method: Method.GET
     });
 

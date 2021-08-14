@@ -1,4 +1,4 @@
-export const formatNumberToThousand = (input) => {
+export const formatNumber = (input) => {
     let number = input;
     if (input && !isNaN(input)) {
         if(number.toString().includes('.')) {
